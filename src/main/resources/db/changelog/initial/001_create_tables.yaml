@@ -1,0 +1,277 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 001_create_tables_and_constraints
+      author: Aleksandr Vasilyev
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: surname
+                  type: varchar(255)
+              - column:
+                  name: age
+                  type: int
+              - column:
+                  name: email
+                  type: varchar(255)
+              - column:
+                  name: password
+                  type: varchar(255)
+              - column:
+                  name: phone_number
+                  type: varchar(50)
+              - column:
+                  name: avatar
+                  type: varchar(255)
+              - column:
+                  name: account_type
+                  type: bigint
+              - column:
+                  name: enabled
+                  type: boolean
+
+        - createTable:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: category_id
+                  type: bigint
+              - column:
+                  name: name
+                  type: varchar(255)
+
+        - createTable:
+            tableName: vacancies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: category_id
+                  type: bigint
+              - column:
+                  name: salary
+                  type: real
+              - column:
+                  name: experience_min
+                  type: int
+              - column:
+                  name: experience_max
+                  type: int
+              - column:
+                  name: is_active
+                  type: boolean
+              - column:
+                  name: author_id
+                  type: bigint
+              - column:
+                  name: created_time
+                  type: timestamp
+              - column:
+                  name: updated_time
+                  type: timestamp
+
+        - createTable:
+            tableName: contact_types
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type
+                  type: varchar(255)
+
+        - createTable:
+            tableName: contacts
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type_id
+                  type: bigint
+              - column:
+                  name: resume_id
+                  type: bigint
+              - column:
+                  name: contact_value
+                  type: varchar(255)
+
+        - createTable:
+            tableName: resumes
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: applicant_id
+                  type: bigint
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: category_id
+                  type: bigint
+              - column:
+                  name: salary
+                  type: real
+              - column:
+                  name: is_active
+                  type: boolean
+              - column:
+                  name: created_time
+                  type: timestamp
+              - column:
+                  name: updated_time
+                  type: timestamp
+
+        - createTable:
+            tableName: responded_applicants
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: resume_id
+                  type: bigint
+              - column:
+                  name: vacancy_id
+                  type: bigint
+              - column:
+                  name: confirmation
+                  type: boolean
+
+        - createTable:
+            tableName: educations
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: resume_id
+                  type: bigint
+              - column:
+                  name: institution
+                  type: varchar(255)
+              - column:
+                  name: program
+                  type: varchar(255)
+              - column:
+                  name: start_date
+                  type: date
+              - column:
+                  name: end_date
+                  type: date
+              - column:
+                  name: degree
+                  type: varchar(255)
+
+        - createTable:
+            tableName: work_experience_info
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: resume_id
+                  type: bigint
+              - column:
+                  name: years
+                  type: int
+              - column:
+                  name: company_name
+                  type: varchar(255)
+              - column:
+                  name: position
+                  type: varchar(255)
+              - column:
+                  name: responsibilities
+                  type: text
+
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: responded_applicant_id
+                  type: bigint
+              - column:
+                  name: content
+                  type: text
+              - column:
+                  name: local_date_time
+                  type: timestamp
+
+        - createTable:
+            tableName: account_types
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: account_type
+                  type: varchar(45)
+
+        - createTable:
+            tableName: user_images
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: account_type
+                  type: varchar(45)

@@ -1,0 +1,54 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "HH"
+
+  datasource:
+    url: jdbc:h2:./db/test;AUTO_SERVER=TRUE
+    username: base
+    password: qwerty
+    driver-class-name: org.h2.Driver
+  liquibase:
+    change-log: classpath:/db/changelog/master.yml
+
+#=================== Mail config
+  mail:
+    host: smtp.gmail.com
+    username: #your mail
+    password: #your password
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  #=================== Mail config
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        generate_statistics: false
+        format_sql: true
+    show-sql: false
+
+logging:
+  level:
+    root: info
+    org:
+      hibernate:
+        type: error
+        stat: error
+      springframework:
+        security: error
+    web: info
+    sql: error
+  file:
+    path: logs
+
+token:
+  signing:
+    key: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855
