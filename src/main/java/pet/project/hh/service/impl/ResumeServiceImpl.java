@@ -1,12 +1,9 @@
 package pet.project.hh.service.impl;
 
-import home.work.hh.Dto.*;
 import pet.project.hh.Dto.*;
 import pet.project.hh.exceptions.AccessDeniedException;
 import pet.project.hh.exceptions.ResumeNotFoundException;
 import pet.project.hh.models.Resume;
-import home.work.hh.repository.*;
-import home.work.hh.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;

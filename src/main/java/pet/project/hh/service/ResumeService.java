@@ -1,6 +1,5 @@
 package pet.project.hh.service;
 
-import home.work.hh.Dto.*;
 import pet.project.hh.Dto.*;
 import pet.project.hh.models.Resume;
 import lombok.SneakyThrows;
